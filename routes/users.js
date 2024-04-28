@@ -4,14 +4,12 @@ const plm = require('passport-local-mongoose');
 mongoose.connect("mongodb://127.0.0.1:27017/pinterest");
 
 const userSchema = mongoose.Schema({
-  
   username: String,
   name: String,
   email: String,
   password: String,
-  dob: Number,
+  dob: String,
   profileImage: String,
-  contact: Number,
   boards: {
     type: Array,
     default: []
