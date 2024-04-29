@@ -21,7 +21,11 @@ router.get('/login', function (req, res, next) {
 
 router.get("/profile", isLoggedIn, function(req, res,next){
    res.render("profile");
-})
+});
+
+router.get("/saved", isLoggedIn, function(req, res,next){
+  res.render("saved");
+});
 
 router.post('/register', function (req, res, next) {
   const { username, fullname , email, dob } = req.body;
