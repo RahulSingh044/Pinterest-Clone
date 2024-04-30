@@ -23,8 +23,8 @@ router.get("/profile", isLoggedIn, function(req, res,next){
    res.render("profile");
 });
 
-router.get("/saved", isLoggedIn, function(req, res,next){
-  res.render("saved");
+router.get("/created", isLoggedIn, function(req, res,next){
+  res.render("created");
 });
 
 router.post('/register', function (req, res, next) {
