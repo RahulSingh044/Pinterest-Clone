@@ -8,11 +8,17 @@
   <div class="icon-container">
     <i class="ri-notification-2-fill"></i>
     <i class="ri-chat-3-fill"></i>
-    <div class="w-10 h-10 rounded-full bg-zinc-400 border-2 border-black overflow-hidden">
-      <a href="profile"><img class="w-full h-full object-cover" src="/images/uploads/<%= user.profileImage %>"
-          alt=""></a>
-    </div>
-    <i class="pl-1 ri-arrow-down-s-fill"></i>
+    <% if(log === false) { %>
+    <div class="w-10 h-10 rounded-full bg-zinc-400 border-2 border-black overflow-hidden" id="profile"> 
+      <a href="profile"><img class="pfp w-full h-full object-cover" src="/images/uploads/<%= user.profileImage %>"
+         alt=""></a>
+     </div>
+     <i class="pl-1 ri-arrow-down-s-fill"></i>
+     <% } else { %> 
+     <div class="px-3 py-4 bg-red-500 text-white rounded-xl font-semibold text-xs">
+      <a href="logout"><input type="button" value="Logout"></a>
+     </div>
+     <% } %>
   </div>
 </div>
 <!--------------------------->

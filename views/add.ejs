@@ -1,0 +1,31 @@
+<% include ./partials/header %>
+    <% include ./partials/Navbar %>
+        <hr class="h-2">
+        <div class="w-min-screen min-h-screen px-10 py-5">
+            <h1 class="text-xl font-semibold ml-8 ">Create Pin</h1>
+            <hr class="h-2 m-3 w-full">
+                <form id="uploadform" class="flex flex-wrap" action="/createpost" method="post" enctype="multipart/form-data">
+                    <input class="block hidden" type="file" name="postimage">
+                    <div
+                        class="w-96 h-96 bg-zinc-200 outline-5 outline-slate-300 outline-dashed outline-offset-0 border-dashed rounded-2xl hover:cursor-pointer flex flex-col justify-center items-center sm:ml-20 md:ml-44">
+                        <i id="uploadicon" class="text-[6.5vh] ri-arrow-up-circle-fill"></i>
+                        <h2 class="text-xl">Choose a file</h2>
+                        <hr class="h-10">
+                    </div>
+                    <div class="md:ml-44 sm:ml-20">
+                        <h3 class="block mt-8 text-slate-500">Title</h3>
+                        <input type="text" placeholder="Title"
+                            class="text-black block border-2 border-slate-300 rounded-lg px-2 py-1 w-96" name="title" >
+                        <h3 class="block mt-8 text-slate-500">Description</h3>
+                        <textarea name="description" class="p-3 text-black border-2 border-slate-300 rounded-lg min-w-96 h-48"></textarea>
+                        <input type="submit" class="block rounded-xl px-4 py-3 mt-8 bg-red-500 text-white">
+                    </div>
+                </form>
+        </div>
+
+    <script>
+        document.querySelector("#uploadicon").addEventListener("click", function() {
+            document.querySelector("#uploadform input").click();
+        })
+    </script>
+        <% include ./partials/footer %>/

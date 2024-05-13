@@ -23,10 +23,10 @@
     <div class="cards flex flex-wrap gap-10 mt-7 px-2">
         <div class="card">
             <div class="w-52 h-40 bg-zinc-500  rounded-lg">
-                <img class="overflow-hidden w-full h-full rounded-lg object-fit" src="https://i.pinimg.com/236x/8e/aa/c3/8eaac3aa73682abda07cc6d166edb944.jpg" alt="">
+                <img class="overflow-hidden object-fit w-full h-full rounded-lg object-fit" src="/images/uploads/<%= user.posts[0].image %>" alt="">
             </div>
-            <h3 class="text-xl font-semibold mt-2">All Pins</h3>
-            <h5 class="text-sm font-medium">28 Pins</h5>
+            <h3 class="text-xl font-semibold mt-2">Your Pins</h3>
+            <h5 class="text-sm font-medium"><%= user.posts.length%></h5>
         </div>
     </div>
 </div>
