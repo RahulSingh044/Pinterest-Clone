@@ -20,14 +20,19 @@ router.get('/login', function (req, res, next) {
   res.render('login');
 });
 
-router.get('/created',isLoggedIn ,async function (req, res, next) {
-  const user = await userModel.findOne({username: req.session.passport.user}).populate("posts");
-  res.render("created",{user, log:true});
-});
+// router.get('/created',isLoggedIn ,async function (req, res, next) {
+//   const user = await userModel.findOne({username: req.session.passport.user}).populate("posts");
+//   res.render("created",{user, log:true});
+// });
 
 router.get("/profile", isLoggedIn, async function(req, res,next){
-  const user = await userModel.findOne({username: req.session.passport.user})
+  const user = await userModel.findOne({username: req.session.passport.user}).populate("posts");
   res.render("profile",{user , log:true});
+});
+
+router.get("/show/posts", isLoggedIn, async function(req, res,next){
+  const user = await userModel.findOne({username: req.session.passport.user}).populate("posts");
+  res.render("show",{user , log:true});
 });
 
 router.get('/add',isLoggedIn ,async function (req, res, next) {

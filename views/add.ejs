@@ -5,8 +5,11 @@
             <h1 class="text-xl font-semibold ml-8 ">Create Pin</h1>
             <hr class="h-2 m-3 w-full">
                 <form id="uploadform" class="flex flex-wrap" action="/createpost" method="post" enctype="multipart/form-data">
-                    <input class="block hidden" type="file" name="postimage">
-                    <div
+                    <input class="block hidden" type="file" name="postimage" id="upload_file" onchange="getImagePreview(event)">
+                    <div id="preview">
+                        <img src="" alt="" class="rounded-2xl rounded-2xl hover:cursor-pointer flex flex-col justify-center items-center sm:ml-20 md:ml-44">
+                    </div>
+                    <div id="upload-box"
                         class="w-96 h-96 bg-zinc-200 outline-5 outline-slate-300 outline-dashed outline-offset-0 border-dashed rounded-2xl hover:cursor-pointer flex flex-col justify-center items-center sm:ml-20 md:ml-44">
                         <i id="uploadicon" class="text-[6.5vh] ri-arrow-up-circle-fill"></i>
                         <h2 class="text-xl">Choose a file</h2>
@@ -27,5 +30,19 @@
         document.querySelector("#uploadicon").addEventListener("click", function() {
             document.querySelector("#uploadform input").click();
         })
+        document.querySelector("#uploadform input").addEventListener("change", function () {
+            document.querySelector("img-block").submit();
+        })
+        
+        function getImagePreview(event) {
+            var image = URL.createObjectURL(event.target.files[0]);
+            var imagediv = document.querySelector("#preview");
+            var newimg = document.querySelector("#preview img");
+            newimg.src = image;
+            newimg.width = 500;
+            imagediv.appendChild(newimg);
+            document.querySelector("#upload-box").style.display = "none";
+        }
+
     </script>
         <% include ./partials/footer %>/
